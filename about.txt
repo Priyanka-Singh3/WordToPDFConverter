@@ -1,0 +1,36 @@
+Backend
+----------------------------------------
+cd Backend
+
+express.js lekr aayenge for server isliye 
+    npm init
+    npm i express
+
+ab package.json me script me "start": "node index.js" likha h kyuki entry point index.js h
+but we need nodemon for direct changes and refreshing vaali cheez , so change "node index.js" to "nodemon index.js"
+
+Now, for uplaoding a file we need to have a storage area so we will make a folder "uploads" and isme saari files store kraayenge
+For that we will use "multer"
+    npm i multer
+    disk storage vaala code uthaao from site
+
+Next, is to have post request as we need to upload files
+for that we will use another library "docx-pdf"
+phle post req ke liye index.js me request bnaani h 
+        app.post('/profile', upload.single('file'),  (req, res, next) =>  {
+            try{
+
+            }
+            catch(error){
+
+            }
+        })
+
+Now, docx-pdf vaala code daaldo site se try vaale part me
+    docxConverter('./input.docx','./output.pdf',function(err,result){
+        if(err){
+            console.log(err);
+        }
+        console.log('result'+result);
+    });
+
